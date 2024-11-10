@@ -1,2 +1,2 @@
 # pi-bootstrap
-Quick raspberry pi bootstrap script for reverse proxy, container apps, ssh and resource dashboard configuration
+Quickstart script intended for use on a Raspberry Pi that functions as a web server/proxy using container applications a minimal dashboard and other usefull configurations.

@@ -323,6 +323,7 @@ if [ "$REPLY" = "y" ]; then
     sudo apt -y update
     echo "Installing docker..."
     sudo apt -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    sudo usermod -aG docker $USER
 fi
 
 read -r -n2 -p "Do you want to install k3s (y/n)? "
