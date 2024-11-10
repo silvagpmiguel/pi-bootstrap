@@ -56,8 +56,8 @@ dynamic.7.regexp=\S+\s+\d+\s+(\d+).*\/boot.*$
 dynamic.7.postprocess=$1/1024
 dynamic.7.rrd=GAUGE
 
-web.status.1.content.7.name=SD card
-web.status.1.content.7.icon=sd.png
+web.status.1.content.7.name=Storage
+web.status.1.content.7.icon=usb_hdd.png
 web.status.1.content.7.line.1="<b>/boot</b> Used: <b>"+KMG(data.sdcard_boot_used,'M')+"</b> (<b>"+Percent(data.sdcard_boot_used,data.sdcard_boot_total,'M')+"</b>) Free: <b>"+KMG(data.sdcard_boot_total-data.sdcard_boot_used,'M')+ "</b> Total: <b>"+ KMG(data.sdcard_boot_total,'M') +"</b>"
 web.status.1.content.7.line.2=ProgressBar(data.sdcard_boot_used,data.sdcard_boot_total,60,80)
 web.status.1.content.7.line.3="<b>/</b> Used: <b>"+KMG(data.sdcard_root_used,'M') + "</b> (<b>" + Percent(data.sdcard_root_used,data.sdcard_root_total,'M')+"</b>) Free: <b>"+KMG(data.sdcard_root_total-data.sdcard_root_used,'M')+ "</b> Total: <b>"+ KMG(data.sdcard_root_total,'M') + "</b>"
@@ -219,16 +219,16 @@ http {
                 server_name $USER.local;
 
                 location = / {
-                        return 301 /dashboard;
+                        return 301 http://127.0.0.1/dashboard;
                 }
                 location /shellinabox/ {
-                        proxy_pass http://localhost:4200;
+                        proxy_pass http://127.0.0.1:4200;
                 }
                 location /dashboard/ {
-                        proxy_pass http://localhost:8888;
+                        proxy_pass http://127.0.0.1:8888;
                 }
                 location /addons/ {
-                        proxy_pass http://localhost:8888;
+                        proxy_pass http://127.0.0.1:8888;
                 }
         }
 }
